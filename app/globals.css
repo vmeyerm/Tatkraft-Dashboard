@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@theme inline {
+  /* Updated font configuration to ensure Inter is properly applied */
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  :root {
+    /* Enhanced color tokens for better Apple Glass aesthetic and legibility */
+    --background: 241 245 249;
+    --foreground: 31 41 55;
+    --card: 255 255 255 / 0.15; /* More transparent for glass effect */
+    --card-foreground: 31 41 55;
+    --popover: 255 255 255 / 0.2;
+    --popover-foreground: 31 41 55;
+    --primary: 99 102 241; /* Changed to indigo for better contrast */
+    --primary-foreground: 255 255 255;
+    --secondary: 107 114 128;
+    --secondary-foreground: 241 245 255;
+    --muted: 148 163 184 / 0.1; /* More subtle muted backgrounds */
+    --muted-foreground: 71 85 105; /* Darker for better readability */
+    --accent: 99 102 241;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 255 255 255 / 0.15; /* More visible borders */
+    --input: 255 255 255 / 0.2;
+    --ring: 99 102 241 / 0.5;
+    --chart-1: 99 102 241;
+    --chart-2: 16 185 129;
+    --chart-3: 59 130 246;
+    --chart-4: 245 158 11;
+    --chart-5: 234 179 8;
+    --radius: 0.75rem; /* Slightly more rounded for Apple aesthetic */
+    --sidebar-background: 255 255 255 / 0.15;
+    --sidebar-foreground: 31 41 55;
+    --sidebar-primary: 99 102 241;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 241 245 249;
+    --sidebar-accent-foreground: 31 41 55;
+    --sidebar-border: 255 255 255 / 0.15;
+    --sidebar-ring: 99 102 241 / 0.5;
+  }
+  .dark {
+    /* Enhanced dark mode with better glass transparency and contrast */
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59 / 0.15; /* More transparent glass cards */
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59 / 0.2;
+    --popover-foreground: 248 250 252;
+    --primary: 99 102 241;
+    --primary-foreground: 255 255 255;
+    --secondary: 71 85 105;
+    --secondary-foreground: 248 250 252;
+    --muted: 51 65 85 / 0.1; /* More subtle muted */
+    --muted-foreground: 148 163 184;
+    --accent: 99 102 241;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 255 255 255 / 0.15;
+    --input: 30 41 59 / 0.2;
+    --ring: 99 102 241 / 0.5;
+    --chart-1: 99 102 241;
+    --chart-2: 34 197 94;
+    --chart-3: 59 130 246;
+    --chart-4: 251 191 36;
+    --chart-5: 245 101 101;
+    --sidebar-background: 30 41 59 / 0.15;
+    --sidebar-foreground: 248 250 252;
+    --sidebar-primary: 99 102 241;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 51 65 85;
+    --sidebar-accent-foreground: 248 250 252;
+    --sidebar-border: 255 255 255 / 0.15;
+    --sidebar-ring: 99 102 241 / 0.5;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* Updated to use sleek Inter font and dark gradient background */
+    @apply text-foreground font-sans;
+    font-family: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+    /* Dark gradient wallpaper with night-sky aesthetic */
+    background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/apple-macos-mojave-stock-dark-midnight-13-10-2024-1728807253-hd-wallpaper.jpg-iEDEx0wvb0TcMqgbM0fqRj46B7wiat.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* Added overlay to fade background image by 50% */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+/* Enhanced glass morphism with more subtle, executive-style panels */
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0
+      rgba(255, 255, 255, 0.1);
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl rounded-2xl;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.03), inset 0 1px 0
+      rgba(255, 255, 255, 0.08);
+  }
+  .glass-hover {
+    @apply hover:bg-white/10 transition-all duration-300 ease-out;
+  }
+  .glass-button {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 active:bg-white/20 transition-all duration-200 ease-out shadow-lg rounded-xl;
+  }
+  .glass-button-primary {
+    @apply bg-white/5 backdrop-blur-md border border-white/20 hover:bg-white/10 active:bg-white/20 transition-all duration-200 ease-out shadow-lg rounded-xl;
+  }
+  .small-caps {
+    @apply text-xs font-medium tracking-wider uppercase;
+  }
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl rounded-3xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0
+      rgba(255, 255, 255, 0.1);
+  }
+  .glass-card-inner {
+    @apply bg-white/5 backdrop-blur-lg border border-white/5 shadow-lg rounded-xl;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.02), inset 0 1px 0
+      rgba(255, 255, 255, 0.05);
+  }
+  .glass-icon-container {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg rounded-xl;
+  }
+  .glass-button-micro {
+    @apply bg-white/5 backdrop-blur-sm border border-white/5 hover:bg-white/10 active:bg-white/10 transition-all duration-200 ease-out rounded-lg;
+  }
+  .glass-input {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 focus:border-white/25 transition-all duration-200 rounded-xl;
+  }
+  /* Added executive-style accent colors for category highlights */
+  .accent-blue {
+    @apply text-cyan-300/90 border-cyan-400/20 bg-cyan-500/5;
+  }
+  .accent-green {
+    @apply text-green-300/90 border-green-400/20 bg-green-500/5;
+  }
+  .accent-violet {
+    @apply text-violet-300/90 border-violet-400/20 bg-violet-500/5;
+  }
+  .accent-cyan {
+    @apply text-cyan-300/90 border-cyan-400/20 bg-cyan-500/5;
+  }
+  .accent-orange {
+    @apply text-orange-300/90 border-orange-400/20 bg-orange-500/5;
+  }
+}
