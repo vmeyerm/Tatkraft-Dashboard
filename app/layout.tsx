@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Tatkraft Executive Dashboard",
-  description: "Executive dashboard with Apple Glass UI",
+  description: "Executive dashboard by Tatkraft.ai",
     generator: 'v0.app'
 }
 
